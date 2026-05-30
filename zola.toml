@@ -2,7 +2,6 @@
 base_url = "https://danielschlaugies.com"
 
 title = "Daniel Schlaugies"
-#description = "Homepage of Daniel Schlaugies"
 
 default_language = "en"
 
@@ -24,3 +23,5 @@ theme = "catppuccin-mocha"
 # Put all your custom variables here
 footer_credits = false
 footer_links = []
+linkedin = "https://linkedin.com/in/daniel-schlaugies"
+github = "https://github.com/danielschlaugies/"

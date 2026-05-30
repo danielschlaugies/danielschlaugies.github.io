@@ -1,33 +1,40 @@
 {% extends "lightspeed/templates/index.html" %}
 
-{%block title %}
+{% block ogdesc %}Personal web page of {{ config.author }}{% endblock ogdesc %}
+
+{% block title %}
 {{ config.title }}
 {% endblock title %}
 
+
+
 {% block content %}
+{% if current_path == "/" %}
+{% set image = resize_image(path="me.jpg", width=304, op="fit_width") %}
+<img src="{{ image.url }}" alt="Portrait picture of {{ config.author }}" loading="lazy" />
+{% endif %}
 {{ section.content | safe }}
 {% endblock content %}
 
 {% block footer %}
     <footer role="contentinfo">
         <hr />
-        {% if config.extra.footer_links %}
+        {% if config.extra.linkedin or config.extra.github %}
         <nav style="margin-bottom:1rem;" role="navigation">
-          {% for item in config.extra.footer_links %}
-            <a href="{{ item.url | replace(from="$BASE_URL", to=config.base_url) | safe }}">{{ item.name }}</a>
-            {% if loop.last %}{% else %}
-              <span>&middot;</span>
+            {% if config.extra.linkedin %}
+            <a href="{{ config.extra.linkedin }}" target="_blank">
+                <img src="LI-Logo.png" alt="LinkedIn Logo" style="height: 1.25rem;" loading="lazy" />
+            </a>
             {% endif %}
-          {% endfor %}
+            {% if config.extra.github %}
+            <a href="{{ config.extra.github }}" target="_blank">
+                <img src="GitHub_Lockup_Black_Clearspace.svg" alt="GitHub Logo" style="height: 1.25rem;" loading="lazy" />
+            </a>
+            {% endif %}
         </nav>
         {% endif %}
+        
         {% block taglines %}
-          {%- if config.extra.footer_credits or config.extra.footer_credits is undefined -%}
-            <small>
-              {% set credits = "Built with [Zola](https://www.getzola.org) and [Lightspeed](https://github.com/carpetscheme/lightspeed)" %}
-              {{ credits | markdown(inline=true) | safe }}
-            </small>
-          {%- endif -%}
           <small>
             Copyright &copy; {{ now() | date(format="%Y") }} {{ config.author }}. All rights reserved.
           </small>
