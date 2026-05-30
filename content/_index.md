@@ -1,7 +1,7 @@
 +++
 
 +++
-## About Me
+### About Me
 
 Hello, I am Daniel Schlaugies.
 

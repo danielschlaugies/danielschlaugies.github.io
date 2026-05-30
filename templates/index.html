@@ -1,5 +1,6 @@
 {% extends "lightspeed/templates/index.html" %}
 
+{% block description %}Personal web page of {{ config.author }}{% endblock description %}
 {% block ogdesc %}Personal web page of {{ config.author }}{% endblock ogdesc %}
 
 {% block title %}
@@ -10,8 +11,8 @@
 
 {% block content %}
 {% if current_path == "/" %}
-{% set image = resize_image(path="me.jpg", width=304, op="fit_width") %}
-<img src="{{ image.url }}" alt="Portrait picture of {{ config.author }}" loading="lazy" />
+{% set image = resize_image(path="me.jpg", width=912, op="fit_width", format="avif") %}
+<img src="{{ image.url }}" alt="Portrait picture of {{ config.author }}" loading="lazy" width="{{ image.width }}" height="{{ image.height }}" style="width: min(304px, 80vw);" />
 {% endif %}
 {{ section.content | safe }}
 {% endblock content %}
@@ -23,12 +24,12 @@
         <nav style="margin-bottom:1rem;" role="navigation">
             {% if config.extra.linkedin %}
             <a href="{{ config.extra.linkedin }}" target="_blank">
-                <img src="LI-Logo.png" alt="LinkedIn Logo" style="height: 1.25rem;" loading="lazy" />
+                <img src="{{ get_url(path='LI-Logo.png') }}" alt="LinkedIn Logo" loading="lazy" width="2212" height="540" style="height: 20px; width: auto;" />
             </a>
             {% endif %}
             {% if config.extra.github %}
             <a href="{{ config.extra.github }}" target="_blank">
-                <img src="GitHub_Lockup_Black_Clearspace.svg" alt="GitHub Logo" style="height: 1.25rem;" loading="lazy" />
+                <img src="{{ get_url(path='GitHub_Lockup_Black_Clearspace.svg') }}" alt="GitHub Logo" loading="lazy" width="448" height="127" style="height: 20px; width: auto;" />
             </a>
             {% endif %}
         </nav>
