@@ -1,3 +1,6 @@
 [submodule "themes/lightspeed"]
 	path = themes/lightspeed
 	url = git@github.com:carpetscheme/lightspeed.git
+[submodule "themes/nord"]
+	path = themes/nord
+	url = git@github.com:nordtheme/nord.git

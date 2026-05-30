@@ -1,0 +1,21 @@
+@import "../themes/lightspeed/sass/style.scss";
+@import "../themes/nord/src/nord.scss";
+
+html,
+body {
+    background: $nord4;
+    color: $nord0;
+}
+
+a,
+a:visited {
+    color: $nord10;
+}
+
+pre {
+    background: $nord6;
+}
+
+td {
+    border: 1px solid $nord0;
+}
