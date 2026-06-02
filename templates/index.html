@@ -2,6 +2,7 @@
 
 {% block description %}Personal web page of {{ config.author }}{% endblock description %}
 {% block ogdesc %}Personal web page of {{ config.author }}{% endblock ogdesc %}
+{% block ogimage %}{% set ogimg = resize_image(path="me.jpg", width=1200, height=630, op="fill") %}{{ ogimg.url }}{% endblock ogimage%}
 
 {% block title %}
 {{ config.title }}
