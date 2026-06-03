@@ -39,6 +39,11 @@
         {% block taglines %}
           <small>
             Copyright &copy; {{ now() | date(format="%Y") }} {{ config.author }}. All rights reserved.
+            <nav role="navigation">
+                <a href="/legal">Legal Notice</a>
+                &middot;
+                <a href="/privacy">Privacy Policy</a>
+            </nav>
           </small>
         {% endblock taglines %}
     </footer>
